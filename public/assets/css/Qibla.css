@@ -1,0 +1,189 @@
+/* ===== GENERAL STYLES ===== */
+body {
+    font-family: "Tahoma", sans-serif;
+    direction: rtl;
+    text-align: center;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container styling */
+.container {
+    margin: 80px auto;
+    background: white;
+    width: 380px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling */
+h1 {
+    color: #b8925a;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* City name styling */
+.city {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #775c2c;
+}
+
+/* Prayer time items */
+.prayer {
+    background: #faf6ef;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid #e0d3ba;
+}
+
+/* ===== COMPASS STYLES ===== */
+
+/* Status text above compass */
+#status {
+    font-size: .95rem;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #775c2c;
+}
+
+/* Main compass container */
+.compass-container {
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    border: 8px solid #b8925a;
+}
+
+/* Compass circular background */
+.compass-background {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #f9f3e4, #e8dcc4 70%);
+    border: 6px solid #b8925a;
+}
+
+/* Direction letters (N, S, E, W) */
+.direction {
+    position: absolute;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #b8925a;
+}
+
+/* Position for North letter */
+.n { top: 8px; left: 50%; transform: translateX(-50%); }
+/* Position for South letter */
+.s { bottom: 8px; left: 50%; transform: translateX(-50%); }
+/* Position for East letter */
+.e { right: 10px; top: 50%; transform: translateY(-50%); }
+/* Position for West letter */
+.w { left: 10px; top: 50%; transform: translateY(-50%); }
+
+/* Qibla direction marker */
+#qiblaMarker {
+    position: absolute;
+    width: 16px;
+    height: 80px;
+    top: 10px;
+    left: 50%;
+    transform-origin: 50% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Qibla arrow triangle */
+.q-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 32px 9px 0 9px;
+    border-color: #b8925a transparent transparent transparent;
+}
+
+/* Qibla text label */
+.q-text {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    color: #b8925a;
+    font-weight: bold;
+}
+
+/* Compass needle */
+#needle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7px 100px 7px;
+    border-color: transparent transparent #c0392b transparent;
+    transform-origin: 50% 0;
+    filter: drop-shadow(0 5px 4px rgba(0,0,0,0.35));
+}
+
+/* Compass needle base circle */
+#needle-base {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: #333;
+    border: 3px solid #eee;
+    border-radius: 50%;
+}
+
+/* Message display area */
+#message {
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-height: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #775c2c;
+}
+
+/* Toggle button styling */
+#toggle {
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: #b8925a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.25s;
+}
+
+/* Hover state for toggle button */
+#toggle:hover {
+    background: #9c7a47;
+}
+
+/* Stopped state for toggle button */
+#toggle.stopped {
+    background: #c9c9c9;
+}
+
+/* Additional padding for navbar in Qibla page only */
+.navbar {
+    padding: 0 30px 0 20px !important; /* Add margins from sides */
+}

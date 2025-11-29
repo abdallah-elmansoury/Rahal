@@ -1,0 +1,819 @@
+/* ============== CSS VARIABLES FOR CONSISTENT THEMING ============== */
+:root {
+    --primary: #142836;
+    --gold: #be9d6a;
+    --light-gold: #d4b78c;
+    --dark-blue: #092735;
+    --white: #ffffff;
+    --light-bg: #f8f9fa;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --shadow: 0 20px 60px rgba(0,0,0,0.1);
+    --gradient: linear-gradient(135deg, #142836 0%, #1e3a52 100%);
+    --gold-gradient: linear-gradient(135deg, #be9d6a 0%, #d4b78c 100%);
+}
+
+/* ============== ARTICLE PAGE NAVBAR STYLES ============== */
+.article-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* Safari support */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 1000;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(190, 157, 106, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navbar when scrolled down */
+.article-navbar.scrolled {
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+}
+
+/* Brand/logo container */
+.article-navbar .nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Logo image styles */
+.article-navbar .nav-logo {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Logo hover effect */
+.article-navbar .nav-brand:hover .nav-logo {
+    transform: scale(1.05);
+}
+
+/* Navigation menu container */
+.article-nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Individual menu item */
+.article-nav-menu li {
+    position: relative;
+}
+
+/* Navigation link styles */
+.article-nav-menu a {
+    text-decoration: none;
+    color: var(--primary);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold gradient background on hover */
+.article-nav-menu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gold-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 25px;
+}
+
+/* Hover effects for navigation links */
+.article-nav-menu a:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(190, 157, 106, 0.3);
+}
+
+.article-nav-menu a:hover::before {
+    opacity: 1;
+}
+
+/* Ensure text stays above gradient */
+.article-nav-menu a span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Search bar container */
+.article-nav-search {
+    position: relative;
+    width: 300px;
+}
+
+/* Search input field */
+.article-nav-search input {
+    width: 100%;
+    padding: 12px 20px;
+    padding-left: 45px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(248, 249, 250, 0.8);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Search input focus state */
+.article-nav-search input:focus {
+    outline: none;
+    background: var(--white);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(190, 157, 106, 0.1);
+}
+
+/* Search icon positioning */
+.article-nav-search i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+/* ============== ARTICLE HERO SECTION ============== */
+.article-hero {
+    margin-top: 80px; /* Account for fixed navbar */
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--gradient);
+}
+
+/* Background pattern overlay */
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: 
+        radial-gradient(circle at 20% 80%, var(--gold) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--gold) 0%, transparent 50%);
+}
+
+/* Hero content container */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    color: var(--white);
+    text-align: center;
+}
+
+/* Main article title */
+.article-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Article subtitle */
+.article-subtitle {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.4rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Meta information grid (author, date, reading time, etc.) */
+.article-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+/* Individual meta card */
+.meta-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Meta card hover effect */
+.meta-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Meta information icon */
+.meta-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Meta label text */
+.meta-label {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+/* Meta value text */
+.meta-value {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ============== MAIN ARTICLE CONTENT AREA ============== */
+.article-main {
+    position: relative;
+    z-index: 10;
+}
+
+/* Article container with negative margin to overlap hero */
+.article-container {
+    max-width: 1200px;
+    margin: -100px auto 0;
+    padding: 0 5%;
+}
+
+/* Main article card */
+.article-card {
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 60px;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Article card hover effect */
+.article-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+}
+
+/* Featured image container */
+.article-featured-image {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+/* Featured image styling */
+.article-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+/* Image zoom effect on card hover */
+.article-card:hover .article-featured-image img {
+    transform: scale(1.05);
+}
+
+/* Image overlay for text content */
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(20, 40, 54, 0.9));
+    padding: 60px 50px 40px;
+    color: var(--white);
+}
+
+/* Overlay heading */
+.image-overlay h2 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Overlay paragraph text */
+.image-overlay p {
+    font-family: 'Tajawal', sans-serif;
+    opacity: 0.9;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Article body content area */
+.article-body {
+    padding: 80px;
+    direction: rtl; /* Right-to-left text direction for Arabic */
+}
+
+/* Main content typography */
+.article-content {
+    line-height: 1.9;
+    font-size: 1.15rem;
+    color: var(--text);
+    max-width: 100%;
+}
+
+/* Headings hierarchy with gold accent */
+.article-content h1 {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--primary);
+    font-size: 2.8rem;
+    margin: 50px 0 30px;
+    font-weight: 800;
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 15px;
+}
+
+.article-content h2 {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin: 40px 0 25px;
+    font-weight: 700;
+    position: relative;
+    padding-right: 20px;
+}
+
+.article-content h3 {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--dark-blue);
+    font-size: 1.8rem;
+    margin: 35px 0 20px;
+    font-weight: 600;
+}
+
+/* Paragraph styling */
+.article-content p {
+    margin-bottom: 30px;
+    font-family: 'Tajawal', sans-serif;
+    text-align: justify;
+    font-size: 1.15rem;
+    color: var(--text);
+}
+
+/* Image styling within content */
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    border: 1px solid #f0f0f0;
+}
+
+/* Image hover effect */
+.article-content img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* Blockquote styling with gold accent */
+.article-content blockquote {
+    border-right: 4px solid var(--gold);
+    padding: 40px;
+    margin: 50px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 0 20px 20px 0;
+    font-style: italic;
+    color: var(--dark-blue);
+    font-size: 1.3rem;
+    font-family: 'Tajawal', sans-serif;
+    position: relative;
+}
+
+/* Blockquote decorative quote mark */
+.article-content blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--gold);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    opacity: 0.3;
+    font-family: serif;
+}
+
+/* List styling */
+.article-content ul, 
+.article-content ol {
+    margin: 30px 0;
+    padding-right: 30px;
+}
+
+/* List item styling */
+.article-content li {
+    margin-bottom: 15px;
+    font-family: 'Tajawal', sans-serif;
+    position: relative;
+    padding-right: 25px;
+    font-size: 1.1rem;
+}
+
+/* Custom bullet points for unordered lists */
+.article-content ul li::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* Table styling */
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 40px 0;
+    font-family: 'Tajawal', sans-serif;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Table header styling */
+.article-content th {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 20px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Table cell styling */
+.article-content td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+}
+
+/* Alternate row coloring */
+.article-content tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* Row hover effect */
+.article-content tr:hover {
+    background: #e3f2fd;
+}
+
+/* ============== BUTTON COMPONENTS ============== */
+/* Navigation button base styles */
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #142836;
+    color: #ffffff;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease, 
+                transform 0.3s ease, 
+                box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(20, 40, 54, 0.2);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Navigation button hover effect */
+.nav-btn:hover {
+    background-color: #be9d6a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(190, 157, 106, 0.4);
+}
+
+/* Back button specific styling */
+.nav-btn.back {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: none;
+    margin: 0;
+    padding: 15px 25px;
+    width: auto;
+    min-width: auto;
+}
+
+/* Back button hover effect */
+.nav-btn.back:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Location button base styles */
+.location-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #142836;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(20, 40, 54, 0.2);
+}
+
+/* Location button hover effect */
+.location-btn:hover {
+    background: #be9d6a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(190, 157, 106, 0.4);
+}
+
+/* Secondary button variant */
+.location-btn.secondary {
+    background: transparent;
+    color: #142836;
+    border: 2px solid #142836;
+    box-shadow: none;
+}
+
+/* Secondary button hover effect */
+.location-btn.secondary:hover {
+    background: #142836;
+    color: white;
+}
+
+/* Share button styles */
+.share-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+/* Share button hover effect */
+.share-btn:hover {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(190, 157, 106, 0.3);
+}
+
+/* ============== NAVIGATION AND SHARE SECTION ============== */
+.article-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+    gap: 20px;
+}
+
+/* Share section container */
+.article-share {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Share text label */
+.share-text {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-light);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Share buttons container */
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* ============== LOCATION INFORMATION SECTION ============== */
+.article-location {
+    margin: 50px 0;
+    padding: 40px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    direction: rtl;
+    border-right: 4px solid #be9d6a;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
+
+/* Location section hover effect */
+.article-location:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+
+/* Location header container */
+.location-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+/* Location icon styling */
+.location-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #be9d6a, #a8845a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(190, 157, 106, 0.3);
+}
+
+/* Location title styling */
+.location-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 28px;
+    position: relative;
+    font-weight: 700;
+    color: #142836;
+    margin: 0;
+    border: none;
+}
+
+/* Location title underline */
+.location-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 35px;
+    transform: translateX(50%);
+    width: 60px;
+    height: 4px;
+    background-color: #be9d6a;
+    border-radius: 2px;
+}
+
+/* Location content container */
+.location-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Location info card */
+.location-info {
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Address styling with proper text breaking */
+.location-address {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #495057;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-right: 4px solid #be9d6a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    word-break: break-all; /* Break long URLs/words */
+    overflow-wrap: break-word; /* Additional support */
+    white-space: normal; /* Allow line breaks */
+    max-width: 100%; /* Prevent overflow */
+}
+
+/* Address hover effect */
+.location-address:hover {
+    background: #e9ecef;
+    transform: translateX(-5px);
+}
+
+/* Location action buttons container */
+.location-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+/* ============== UTILITY CLASSES ============== */
+/* Fade-in animation for scroll effects */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Article page specific chatbot styles */
+.article-page .chatbot-widget {
+    bottom: 30px;
+    left: 30px;
+}
+
+.article-page .chatbot-toggle {
+    background: var(--gold-gradient);
+    border: 3px solid var(--white);
+    box-shadow: 0 8px 30px rgba(190, 157, 106, 0.4);
+}
+
+/* Remove default list styling */
+li {
+    list-style: none;
+}
+
+/* Text truncation for subtitles and descriptions */
+.article-subtitle,
+.article-description,
+.article-intro {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6;
+    max-height: calc(1.6em * 3); /* Calculate max height for 3 lines */
+}
+
+/* Text truncation for first paragraph */
+.article-content > p:first-of-type {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6;
+    max-height: calc(1.6em * 3);
+}
+
+/* Ensure navbar maintains row direction */
+.navbar {
+    flex-direction: row !important;
+}

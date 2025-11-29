@@ -1,0 +1,184 @@
+/*
+==================================================
+  ✅ Interactive Map Settings (SVG Map Styles)
+==================================================
+*/
+
+
+/* 1. Main map container styling (#map) */
+#map {
+  width: 100%;
+  max-width: 700px;
+  height: 600px;
+  margin-right: auto;
+  margin-left: 100px;
+  border-radius: 14px;
+  border: 2px solid #d0d8e0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 2. SVG element settings (#saudi-map) */
+#saudi-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 3. Default settings for region paths (path, polygon) */
+#saudi-map path,
+#saudi-map polygon {
+  /* Default appearance */
+  fill: #cccccc;
+  stroke: #000000;
+  stroke-width: 0.50;
+
+  /* Interaction settings and smooth transitions */
+  transition: fill 0.3s ease-in-out, transform 0.3s ease-out, opacity 0.3s ease-out, filter 0.3s ease-out;
+  transform-origin: center;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/*
+==================================================
+  ✨ Interaction Effects (Hover Effects)
+==================================================
+*/
+
+/* ⚠️ Rule 4 and Rule 5 work together to achieve reverse darkening effect ⚠️ */
+
+/* 4. General rule for reverse darkening: darken all regions when hovering over the main map */
+/* This ensures all paths become darkened when mouse enters the map area */
+#saudi-map:hover path {
+    filter: brightness(0.70);
+    transition: filter 0.3s ease-out;
+}
+
+/* 5. Exception rule: brighten and elevate the specific region under mouse hover */
+/* This more specific rule overrides rule 4 and restores full brightness with lift effect for the hovered region */
+#saudi-map path:hover,
+#saudi-map polygon:hover {
+  transform: translateY(-10px); /* Lift the region */
+  filter: brightness(1.25);      /* Keep the region bright */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  opacity: 1;
+}
+
+/*
+==================================================
+  🎨 Color Settings for 13 Regions (Applying Original Colors)
+==================================================
+*/
+
+/* Note: There are duplicate color blocks below - the second set overrides the first */
+
+/* 1. Riyadh (Ar Riyad) */
+#arriyad { fill: #a8e5d9 !important; }
+
+/* 2. Mecca (Makkah) */
+#makkah { fill: #b2e8de !important; }
+
+/* 3. Medina (Al Madinah) */
+#almadinah { fill: #abe8db !important; }
+
+/* 4. Eastern Province (Ash Sharqiyah) */
+#ashsharqiyah { fill: #b8e8e0 !important; }
+
+/* 5. Qassim (Al Quassim) */
+#alquassim { fill: #c2ede3 !important; }
+
+/* 6. Hail (Hail) */
+#hail { fill: #a8e5d9 !important; }
+
+/* 7. Tabuk (Tabuk) */
+#tabuk { fill: #abe8db !important; }
+
+/* 8. Northern Borders (Al Hudud ash Shamaliyah) */
+#alhududashshamaliyah { fill: #b8e8e0 !important; }
+
+/* 9. Jizan (Jizan) */
+#jizan { fill: #bdebe0 !important; }
+
+/* 10. Najran (Najran) */
+#najran { fill: #a5e5d9 !important; }
+
+/* 11. Al Bahah (Al Bahah) */
+#albahah { fill: #b2e8de !important; }
+
+/* 12. Al Jawf (Al Jawf) */
+#aljawf { fill: #c4ede5 !important; }
+
+/* 13. Asir (Asir) */
+#asir { fill: 	#bdebe0 !important; }
+
+/* =========================================================== */
+/* SECOND COLOR SET - This overrides the previous color set */
+/* =========================================================== */
+
+/* 1. Riyadh (Ar Riyad) - New color */
+#arriyad { fill: #dfc695 !important; }
+
+/* 2. Mecca (Makkah) - New color */
+#makkah { fill: #e4d0a6 !important; }
+
+/* 3. Medina (Al Madinah) - New color */
+#almadinah { fill: #e3cb9d !important; }
+
+/* 4. Eastern Province (Ash Sharqiyah) - New color */
+#ashsharqiyah { fill: #e9d8b8 !important; }
+
+/* 5. Qassim (Al Quassim) - New color */
+#alquassim { fill: #f1e3c5 !important; }
+
+/* 6. Hail (Hail) - New color */
+#hail { fill: #e9d8b8 !important; }
+
+/* 7. Tabuk (Tabuk) - New color */
+#tabuk { fill: #e3cb9d !important; }
+
+/* 8. Northern Borders (Al Hudud ash Shamaliyah) - New color */
+#alhududashshamaliyah { fill: #e9d8b8 !important; }
+
+/* 9. Jizan (Jizan) - New color */
+#jizan { fill: #eeddbf !important; }
+
+/* 10. Najran (Najran) - New color */
+#najran { fill: #dcc697 !important; }
+
+/* 11. Al Bahah (Al Bahah) - New color */
+#albahah { fill: #e4d0a6 !important; }
+
+/* 12. Al Jawf (Al Jawf) - New color */
+#aljawf { fill: #f2e3c4 !important; }
+
+/* 13. Asir (Asir) - New color */
+#asir { fill: 	#eeddbf !important; }
+
+/*
+==================================================
+  💬 Tooltip Information Box Styling
+==================================================
+*/
+
+#map-tooltip {
+    /* Basic functional properties */
+    position: absolute;
+    pointer-events: none; /* Prevents blocking interaction with the map */
+    transition: opacity 0.2s ease-in-out;
+
+    /* Appearance styling */
+    background-color: #ffffff;
+    color: #222222;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0; /* Default hidden state */
+    transform: translateY(0);
+}

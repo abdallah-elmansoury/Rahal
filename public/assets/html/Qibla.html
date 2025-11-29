@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواقيت الصلاة واتجاه القبلة</title>
+    <link rel="stylesheet" href="../css/Qibla.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/article.css">
+    <link rel="icon" href="../images/Favicon/favicon-32x32.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Main container padding to account for fixed navbar */
+        main {
+            padding-top: 100px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Flexbox wrapper to hold the two main cards (Prayer Times & Compass) */
+        .wrapper {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row-reverse;
+            /* Ensure elements flow correctly for RTL */
+            gap: 30px;
+            flex-wrap: wrap;
+            /* responsive wrapping */
+        }
+
+        /* Styling for the application cards */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <section dir="ltr">
+        <div class="navbar" id="navbar" style="background-color: #f2f2f2;">
+            <form method="GET" action="../php/search_results.php" class="search-form">
+                <input dir="rtl" class="search-bar" type="text" name="query" placeholder="ابحث عن معلم سياحي...">
+            </form>
+
+            <div class="navbar-right-group">
+                <ul class="nav-links" dir="rtl">
+                    <li><a href="../../index.php">الرئيسية</a></li>
+                    <li><a href="../php/attractions_list.php">معالم المملكة</a></li>
+                    <li><a href="Qibla.html">القبلة ومواعيد الصلاة</a></li>
+                    <li><a href="../../index.php#map-section">الخريطة</a></li>
+                </ul>
+
+                <a href="../../index.php"><img src="../images/logo/second-logo.png" alt="RahalLogo" id="logo"></a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <h1>مواقيت الصلاة واتجاه القبلة</h1>
+
+        <div class="wrapper">
+
+            <div class="card" style="width: 360px;">
+                <h2>مواقيت الصلاة</h2>
+                <p class="city">📍 المدينة: <span id="city-name">Riyadh</span></p>
+                <div id="prayer-times">جارٍ التحميل...</div>
+            </div>
+
+            <div class="card">
+                <h2>اتجاه القبلة</h2>
+                <div id="status">جاهز</div>
+
+                <div class="compass-container">
+
+                    <div class="compass-background" id="compassBackground">
+                        <div class="direction n">ش</div>
+                        <div class="direction e">شـ</div>
+                        <div class="direction s">ج</div>
+                        <div class="direction w">غ</div>
+                    </div>
+
+                    <div id="qiblaMarker">
+                        <div class="q-arrow"></div>
+                        <div class="q-text">🕋</div>
+                    </div>
+
+                    <div id="needle"></div>
+                    <div id="needle-base"></div>
+
+                </div>
+
+                <div id="message"></div>
+
+                <button id="toggle" class="stopped">ابدأ</button>
+            </div>
+        </div>
+    </main>
+
+    <section>
+        <footer class="article-footer">
+            <div class="footer-top-pattern"></div>
+            <div class="footer-wave"></div>
+
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="../../index.php"><img src="../images/logo/first-logo.png" alt="RahalLogo"
+                                class="footer-logo"></a>
+                    </div>
+                    <p class="footer-description">
+                        منصة رحال - دليلك الشامل لاكتشاف كنوز المملكة العربية السعودية.
+                        نقدم لك تجربة سياحية استثنائية تجمع بين الأصالة والحداثة.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="Youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../index.php">الرئيسية</a></li>
+                        <li><a href="../php/attractions_list.php">معالم المملكة</a></li>
+                        <li><a href="../../index.php#map-section">الخريطة التفاعلية</a></li>
+                        <li><a href="Qibla.html">القبلة ومواعيد الصلاة</a></li>
+                        <li><a href="../../index.php#cities-section">أبرز المدن</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>المعالم</h3>
+                    <ul class="footer-links">
+                        <li><a href="../php/attractions_list.php?category=تراثية">معالم تراثية</a></li>
+                        <li><a href="../php/attractions_list.php?category=دينية">معالم دينية</a></li>
+                        <li><a href="../php/attractions_list.php?category=طبيعية">معالم طبيعية</a></li>
+                        <li><a href="../php/attractions_list.php?category=ثقافية">معالم ثقافية</a></li>
+                        <li><a href="../php/attractions_list.php?category=ترفيهية">معالم ترفيهية</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@rahal.com</p>
+                        <p><i class="fas fa-phone"></i> 6789 345 12 966+</p>
+                        <p><i class="fas fa-map-marker-alt"></i> المملكة العربية السعودية</p>
+                        <p><i class="fas fa-clock"></i> ٢٤/٧ دعم على مدار الساعة</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 رحال. جميع الحقوق محفوظة. | صمم بـ ❤️ لحب المملكة</p>
+            </div>
+        </footer>
+    </section>
+
+    <section>
+        <script>
+            (function () {
+                if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+                    window.chatbase = (...args) => {
+                        if (!window.chatbase.q) {
+                            window.chatbase.q = [];
+                        }
+                        window.chatbase.q.push(args);
+                    };
+
+                    window.chatbase = new Proxy(window.chatbase, {
+                        get(target, prop) {
+                            if (prop === "q") {
+                                return target.q;
+                            }
+                            return (...args) => target(prop, ...args);
+                        }
+                    });
+                }
+
+                const onLoad = function () {
+                    const script = document.createElement("script");
+                    script.src = "https://www.chatbase.co/embed.min.js";
+                    script.id = "BREzytATbRZVEccbXiUID";
+                    script.domain = "www.chatbase.co";
+                    document.body.appendChild(script);
+                };
+
+                if (document.readyState === "complete") {
+                    onLoad();
+                } else {
+                    window.addEventListener("load", onLoad);
+                }
+            })();
+        </script>
+    </section>
+
+    <script src="../js/Qibla.js"></script>
+    <script src="../js/compass.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+
+</html>

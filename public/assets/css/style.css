@@ -1,0 +1,1124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh ;
+    width: 100%;
+    background-color: #f8f9fa;
+    scrollbar-color: #be9d6a transparent;
+    scrollbar-width: thin;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+}
+
+/*============== Customize text selection color ============== */
+::selection {
+    background-color: #be9d6a;
+    color: #f2f2f2;
+}
+
+/*============== Customize the scrollbar appearance ==============*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* الجزء اللي بتحرك بيه */
+::-webkit-scrollbar-thumb {
+    background-color: #be9d6a;
+    border-radius: 10px;
+}
+
+/* لما تقف بالماوس عليه */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a9854f;
+}
+
+/*============== Navbar ==============*/
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+    padding: 0 20px;
+}
+
+/* Logo and navigation links */
+.navbar-right-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* space between logo and nav links */
+}
+
+/* Logo */
+.navbar img {
+    height: 70px;
+    width: 60px;
+}
+
+/* navigation buttons */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* space between nav links */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block; /* make list items inline */
+}
+
+/* navigation links style */
+.nav-links a {
+    text-decoration: none;
+    color: #142836;
+    font-size: large;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+    background-color: rgba(242, 242, 242, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+/* hover effect on navigation links */
+.nav-links a:hover {
+    background-color: #be9d6a;
+    color: #f2f2f2;
+    box-shadow: 0 6px 25px rgba(190, 157, 106, 0.6);
+}
+
+/*Search bar*/
+.search-bar {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+    background-color: rgba(242, 242, 242, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* for Safari */
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 250px;
+    color: #142836;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+/* color of the search bar when user click on it */
+.search-bar:focus {
+    background-color: #be9d6a;
+    box-shadow: 0 6px 25px rgba(190, 157, 106, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+/* placeholder color */
+.search-bar::placeholder {
+    color: #142836;
+}
+
+/* placeholder color when focus on search bar */
+.search-bar:focus::placeholder {
+    color: #f2f2f2;
+}
+
+/* Navbar when scrolled */
+.navbar.navbar-scrolled {
+    background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Search bar and nav links when navbar is scrolled */
+.navbar.navbar-scrolled .search-bar {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(242, 242, 242, 0.4);
+}
+
+/* color of the search bar when user click on it and navbar is scrolled */
+.navbar.navbar-scrolled .search-bar:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    background-color: #be9d6a;
+    box-shadow: 0 6px 25px rgba(190, 157, 106, 0.6);
+}
+
+/* nav links when navbar is scrolled */
+.navbar.navbar-scrolled .nav-links a:hover {
+    background-color: #be9d6a;
+    box-shadow: 0 6px 25px rgba(190, 157, 106, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+.navbar.navbar-scrolled .nav-links a {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific navbar for attractions page */
+#attractions-navbar {
+    background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/*==============Video==============*/
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*Video styles*/
+.video-section video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/*Overlay text*/
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 128px;
+    color: white;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    opacity: 0.7;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*Slogan styles*/
+.slogan {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    right: 45px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    opacity: 0.7;
+    margin-top: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*============== Sections Titles ==============*/
+h3 {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: right;
+    margin-right: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Tajawal', sans-serif;
+    color: #142836;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Underline styles for different headers */
+.first-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #be9d6a;
+    border-radius: 2px;
+}
+.second-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 4px;
+    background-color: #be9d6a;
+    border-radius: 2px;
+}
+.third-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 4px;
+    background-color: #be9d6a;
+    border-radius: 2px;
+}
+
+/*============== Image Carousel ==============*/
+.carousel {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    scrollbar-width: none; /* Firefox */
+    cursor: grab;
+}
+
+/* Change cursor when dragging */
+.carousel:active {
+    cursor: grabbing;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.carousel::-webkit-scrollbar {display: none;}
+
+/* Image styles */
+.images {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 1em;
+}
+
+/* Individual image styles */
+.img {
+    flex: 0 0 auto;
+    height: 400px;
+    width: 600px;
+    object-fit: cover;
+    padding: 1em;
+    user-select: none; /* Prevent image selection while dragging */
+    pointer-events: none;  /* Disable pointer events to avoid interference during drag */
+    border-radius: 50px;
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: 450px;
+    margin: 40px 0;
+    padding: 0 50px;
+}
+
+/* Individual slide styles */
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 400px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.6;
+}
+
+/* Active slide styles */
+.swiper-slide-active {
+    opacity: 1;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Previous and next slide styles */
+.swiper-slide-prev,
+.swiper-slide-next {
+    opacity: 0.8;
+    transform: scale(0.9);
+}
+
+/* Image inside slide */
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover img {
+    transform: scale(1.05);
+}
+
+/* Customize navigation buttons */
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+    color: #be9d6a !important;
+    background: white !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid #be9d6a !important;
+}
+
+/* Adjust the size and style of the arrows inside the buttons */
+.swiper .swiper-button-next:after,
+.swiper .swiper-button-prev:after {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #be9d6a !important;
+}
+
+/* Hover effect on navigation buttons */
+.swiper .swiper-button-next:hover,
+.swiper .swiper-button-prev:hover {
+    background: #be9d6a !important;
+    color: white !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(190, 157, 106, 0.4) !important;
+}
+
+.swiper .swiper-button-next:hover:after,
+.swiper .swiper-button-prev:hover:after {
+    color: white !important;
+}
+
+/* Customize pagination bullets */
+.swiper .swiper-pagination-bullet {
+    background: #be9d6a !important;
+    opacity: 0.3 !important;
+    width: 12px !important;
+    height: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.swiper .swiper-pagination-bullet-active {
+    background: #be9d6a !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+}
+
+.swiper .swiper-pagination-bullet:hover {
+    opacity: 0.7 !important;
+    transform: scale(1.1) !important;
+}
+
+/*============== Attraction Cards ==============*/
+/*hover effect*/
+.attraction-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.attraction-card:hover img {
+    transform: scale(1.08);
+}
+
+/* region and city inside the card */
+.attraction-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-family: 'Tajawal', sans-serif;
+    text-align: right;
+    font-size: 16px;
+}
+
+.attraction-card a:hover {
+    background: #be9d6a;
+    transform: translateY(-2px);
+}
+
+#Details-Button:hover {
+    border: 3px solid #be9d6a !important;
+}
+
+/* زر عرض جميع المعالم */
+.custom-btn {
+    display: inline-block;
+    background: #be9d6a;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(190, 157, 106, 0.3);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/*hover effect*/
+.custom-btn:hover {
+    background: #a8845a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(190, 157, 106, 0.5);
+}
+
+/* active effect*/
+.custom-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(190, 157, 106, 0.3);
+}
+
+/*============== Map Section ==============*/
+.map {
+    scroll-margin-top: 80px;
+}
+
+/* container for map and info panel */
+.map-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* map wrapper to make it flexible */
+.map-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+/* information panel */
+.info-panel {
+    width: 400px;
+    min-height: 620px;
+    background-color: #be9d6a;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+/* Welcome message */
+.welcome-message {
+    text-align: center;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Welcome message styles */
+.welcome-message h2 {
+    font-family: 'Tajawal', sans-serif;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Welcome message paragraph styles */
+.welcome-message p {
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.8;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* saudi logo inside info panel */
+.logo-container {
+    text-align: center;
+    margin-top: 70px;
+    padding-top: 20px;
+}
+
+/* Welcome logo styles */
+.welcome-logo {
+    max-width: 120px;
+    height: auto;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+/* Welcome logo hover effect */
+.welcome-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Region info */
+.region-info {
+    display: none;
+    color: white;
+    height: 100%;
+}
+
+/* Show region info when active */
+.region-info.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Region header styles */
+.region-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Regions name styles */
+.region-name {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Regions image styles */
+.region-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Regions description styles */
+.region-description {
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+    text-align: right;
+    flex-grow: 1;
+}
+
+
+/*============== Comments Section ==============*/
+.comments-section {
+    background: #f8f9fa;
+    padding: 80px 0;
+    margin: 60px 0;
+    direction: rtl;
+}
+
+/* Container for comments section */
+.comments-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section title styles */
+.section-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    color: #142836;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Underline for section title */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 100px;
+    height: 4px;
+    background-color: #be9d6a;
+    border-radius: 2px;
+}
+
+/* Comments carousel container */
+.comments-carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 60px;
+}
+
+/* Comments carousel styles */
+.comments-carousel {
+    display: flex;
+    overflow: hidden;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    min-height: 250px;
+    position: relative;
+    perspective: 1000px;
+}
+
+/* Smooth Carousel Transitions */
+.comment-card {
+    flex: 0 0 100%;
+    padding: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    opacity: 0;
+    transform: translateX(100px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+}
+
+/* Active comment card styles */
+.comment-card.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    position: relative;
+    pointer-events: all;
+    transition-delay: 0.1s;
+}
+
+/* Leaving comment card styles */
+.comment-card.leaving {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.95);
+}
+
+/* Slide directions for infinite effect */
+.comment-card.slide-next {transform: translateX(100px) scale(0.95);}
+.comment-card.slide-prev {transform: translateX(-100px) scale(0.95);}
+.comment-card.slide-next.active {transform: translateX(0) scale(1);}
+.comment-card.slide-prev.active {transform: translateX(0) scale(1);}
+
+/* User avatar styles */
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #be9d6a, #a8845a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(190, 157, 106, 0.3);
+}
+
+/* Hover effect for user avatar */
+.user-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(190, 157, 106, 0.4);
+}
+
+/* User info styles */
+.user-info {
+    flex: 1;
+}
+
+/* User name styles */
+.user-name {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #142836;
+    margin-bottom: 8px;
+}
+
+/* Comment date styles */
+.comment-date {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Comment text styles */
+.comment-text {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #495057;
+    text-align: right;
+    transition: all 0.3s ease;
+}
+
+/* Progress Indicators */
+.carousel-progress {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 15;
+}
+
+/* Individual progress dot styles */
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(190, 157, 106, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Active progress dot styles */
+.progress-dot.active {
+    background: #be9d6a;
+    transform: scale(1.2);
+}
+
+/* Hover effect for progress dots */
+.progress-dot:hover {
+    background: #a8845a;
+    transform: scale(1.1);
+}
+
+/* Add Comment Form */
+.add-comment-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for add comment form */
+.add-comment-form:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Add Comment Form Title */
+.add-comment-form h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Tajawal', sans-serif;
+    color: #142836;
+    font-size: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Input and textarea styles */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    resize: vertical;
+}
+
+/* Focus effect for input and textarea */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #be9d6a;
+    box-shadow: 0 0 0 3px rgba(190, 157, 106, 0.1);
+    transform: translateY(-2px);
+}
+
+/* carousel button styles */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: #be9d6a;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    box-shadow: 0 4px 15px rgba(190, 157, 106, 0.3);
+}
+
+/* hover effect for carousel buttons */
+.carousel-btn:hover {
+    background: #a8845a;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(190, 157, 106, 0.5);
+}
+
+/* active effect for carousel buttons */
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* disabled state for carousel buttons */
+.carousel-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: translateY(-50%);
+    box-shadow: none;
+}
+
+.prev-btn {
+    right: 0;
+}
+
+.next-btn {
+    left: 0;
+}
+
+
+/* Success and error messages */
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Loading Animation */
+.loading-comments {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Loading spinner styles */
+.loading-comments::after {
+    content: '';
+    width: 25px;
+    height: 25px;
+    border: 3px solid #be9d6a;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* No comments state */
+.no-comments {
+    text-align: center;
+    padding: 60px 40px;
+    color: #666;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.no-comments::before {
+    content: "💬";
+    font-size: 48px;
+    opacity: 0.5;
+}
+
+/* Enhanced hover effects for comment cards */
+.comment-card.active:hover {
+    transform: translateY(-5px) scale(1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/*============== Footer ==============*/
+.footer {
+    width: 100vw;
+    background-color: #092735;
+}
+
+/*footer pattern*/
+.footer-top-pattern {
+    width: 100vw;
+    height: 50px;
+    background-image: url('../images/Pattern/pattern.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    z-index: 3;
+}
+
+/* For pages that use article-footer instead of footer */
+.article-footer {
+    width: 100vw ;
+    margin: 80px 0 0 0;
+    padding: 0 ;
+    background-color: #092735;
+}
+
+/* footer main content */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 5% 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* footer logo styles */
+.footer-logo {
+    height: 80px;
+    width: auto;
+    margin-bottom: 20px;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 8px;
+    display: block;
+}
+
+/* footer description styles */
+.footer-description {
+    font-family: 'Tajawal', sans-serif;
+    color: #e9ecef;
+    opacity: 0.8;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    text-align: right;
+}
+
+/* social media links container */
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+/* individual social media link styles */
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.social-link:hover {
+    background: #be9d6a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(190, 157, 106, 0.3);
+}
+
+/* footer section titles */
+.footer-section h3 {
+    font-family: 'Tajawal', sans-serif;
+    color: #be9d6a;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: #be9d6a;
+}
+
+/* footer links styles */
+.footer-links {
+    list-style: none;
+}
+.footer-links li {
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: #e9ecef;
+    text-decoration: none;
+    font-family: 'Tajawal', sans-serif;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: right;
+}
+.footer-links a:hover {
+    opacity: 1;
+    color: #be9d6a;
+    transform: translateX(-5px);
+}
+
+.footer-links a::before {
+    content: '›';
+    color: #be9d6a;
+    font-size: 1.2rem;
+}
+
+/* footer contact info styles */
+.footer-contact p {
+    font-family: 'Tajawal', sans-serif;
+    color: #e9ecef;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: right;
+}
+
+/* footer bottom text */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Tajawal', sans-serif;
+    color: #e9ecef;
+    opacity: 0.7;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 5% 10px;
+}
+
+@import url('./article.css');
