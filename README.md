@@ -6,18 +6,6 @@
 
   <h1 align="center">Rahal (رحال)</h1>
 
-  <p align="center">
-    Your Ultimate Digital Guide to Saudi Arabia's Treasures
-    <br />
-    <a href="https://rahal.eny.sa/"><strong>Explore the Live Site »</strong></a>
-    <br />
-    <br />
-    <a href="#features">View Demo</a>
-    ·
-    <a href="#issues">Report Bug</a>
-    ·
-    <a href="#issues">Request Feature</a>
-  </p>
 </div>
 
 <div align="center">
